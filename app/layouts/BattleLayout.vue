@@ -5,6 +5,6 @@
 <template>
 	<div class="min-h-full h-screen pb-73px">
 		<slot />
-		<MainNav class="fixed bottom-0 left-0 w-full" />
+		<MainNav class="fixed bottom-0 left-0 z-50 w-full" />
 	</div>
 </template>
