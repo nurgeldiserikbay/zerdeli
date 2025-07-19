@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+	import { getUniqueRandomItems } from '~/../shared/utils/index'
+
 	import TestChoose from '~/modules/test/components/TestChoose.vue'
 	import ResultBoard from '~/modules/test/components/ResultBoard.vue'
 
@@ -167,13 +169,7 @@
 	const themes = ref<ITheme[]>()
 	async function fetchTheme() {
 		try {
-			themes.value = new Array(3).fill(0).map((_, ind, arr) => {
-				let theme = THEMES[Math.floor(Math.random() * THEMES.length)]
-				while (!theme || arr.find(t => t.id === theme?.id)) {
-					theme = THEMES[Math.floor(Math.random() * THEMES.length)]
-				}
-				return theme
-			})
+			themes.value = getUniqueRandomItems(THEMES, 3)
 		} catch (error) {
 			console.log(error)
 		}
@@ -195,13 +191,7 @@
 	async function selectTheme(theme: ITheme) {
 		try {
 			console.log(`theme ${theme}`)
-			questions.value = new Array(3).fill(0).map((_, ind, arr) => {
-				let question = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)]
-				while (!question || arr.find(t => t.id === question?.id)) {
-					question = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)]
-				}
-				return question
-			})
+			questions.value = getUniqueRandomItems(QUESTIONS, 3)
 			state.value = 'game'
 		} catch (error) {
 			console.log(error)
@@ -217,6 +207,8 @@
 	async function nextRound() {
 		try {
 			if (!isEnd.value) {
+				questions.value = []
+				answers.value = []
 				round.value += 1
 				state.value = 'category'
 			} else {
@@ -242,7 +234,7 @@
 		</div>
 		<div v-else-if="state === 'game'" class="w-full flex flex-col items-center justify-center gap-3">
 			<TestChoose
-				v-if="getQuestion && questions"
+				v-if="getQuestion && questions?.length"
 				:key="answers.length"
 				:round="round"
 				:questions="questions"
