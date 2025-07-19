@@ -67,7 +67,7 @@
 	<swiper-container ref="containerRef" :loop="true" :autoplay="true" :pagination="{}" :init="false" @swiperslidechange="onSlideChange">
 		<swiper-slide v-for="slide in slides" :key="slide.id">
 			<div class="relative overflow-hidden w-full aspect-ratio-[2] rounded-[20px]">
-				<NuxtImg :src="slide.src" :alt="slide.alt" class="block w-full h-full object-cover" />
+				<img :src="slide.src" :alt="slide.alt" class="block w-full h-full object-cover" />
 			</div>
 		</swiper-slide>
 	</swiper-container>

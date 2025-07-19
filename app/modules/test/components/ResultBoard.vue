@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import UiButton from '~/components/ui/buttons/UiButton.vue'
+
 	interface Player {
 		id: string
 		name: string
@@ -13,7 +15,10 @@
 	defineProps<{
 		players: Player[]
 		rounds: Round[]
+		isEnd: boolean
 	}>()
+
+	const $emits = defineEmits(['next'])
 </script>
 
 <template>
@@ -45,4 +50,17 @@
 			</div>
 		</div>
 	</div>
+
+	<UiButton
+		:tag="'button'"
+		class="mx-auto w-full max-w-260px h-74px mt-12px px-20px justify-center gap-30px rounded-15px text-(16px) font-medium leading-[1.5] sm:(px-40px justify-start)"
+		@click="$emits('next')"
+	>
+		<template #append>
+			<Icon name="my-icons:block-select" class="shrink-0 w-20px h-20px sm:(w-28px h-28px)" />
+		</template>
+		<template #default>
+			<span class="text-(16px center)">{{ isEnd ? 'Выйти' : 'Следующий раунд' }}</span>
+		</template>
+	</UiButton>
 </template>

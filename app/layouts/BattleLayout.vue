@@ -1,7 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+	import MainNav from '~/components/main/MainNav.vue'
+</script>
 
 <template>
-	<div class="min-h-full pb-73px">
+	<div class="min-h-full h-screen pb-73px">
 		<slot />
+		<MainNav class="fixed bottom-0 left-0 w-full" />
 	</div>
 </template>

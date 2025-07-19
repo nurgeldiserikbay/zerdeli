@@ -4,6 +4,10 @@
 
 	import type { IAnsweredData, IQuestion } from '~/modules/test/types'
 
+	definePageMeta({
+		layout: 'battle-layout',
+	})
+
 	interface ITheme {
 		id: number
 		title: string
@@ -19,34 +23,34 @@
 		{ id: 5, title: 'Өзің-өзі тану', icon: '' },
 	]
 	const QUESTIONS: IQuestion[] = [
-		// {
-		// 	id: 0,
-		// 	type: 'single',
-		// 	data: {
-		// 		id: 1,
-		// 		question: 'What is 2 + 2?',
-		// 		options: [
-		// 			{ value: '3', correct: false },
-		// 			{ value: '4', correct: true },
-		// 			{ value: '5', correct: false },
-		// 			{ value: '22', correct: false },
-		// 		],
-		// 	},
-		// },
-		// {
-		// 	id: 1,
-		// 	type: 'multiple',
-		// 	data: {
-		// 		id: 'q2',
-		// 		question: 'Выбери все чётные числа',
-		// 		options: [
-		// 			{ value: '1', correct: false },
-		// 			{ value: '2', correct: true },
-		// 			{ value: '3', correct: false },
-		// 			{ value: '4', correct: true },
-		// 		],
-		// 	},
-		// },
+		{
+			id: 0,
+			type: 'single',
+			data: {
+				id: 1,
+				question: 'What is 2 + 2?',
+				options: [
+					{ value: '3', correct: false },
+					{ value: '4', correct: true },
+					{ value: '5', correct: false },
+					{ value: '22', correct: false },
+				],
+			},
+		},
+		{
+			id: 1,
+			type: 'multiple',
+			data: {
+				id: 'q2',
+				question: 'Выбери все чётные числа',
+				options: [
+					{ value: '1', correct: false },
+					{ value: '2', correct: true },
+					{ value: '3', correct: false },
+					{ value: '4', correct: true },
+				],
+			},
+		},
 		{
 			id: 2,
 			type: 'truefalse',
@@ -57,62 +61,62 @@
 			},
 		},
 		// { id: 3, type: 'ordering', data: {} },
-		// {
-		// 	id: 4,
-		// 	type: 'single',
-		// 	data: {
-		// 		id: 1,
-		// 		question: 'What is 3 + 3?',
-		// 		options: [
-		// 			{ value: '3', correct: false },
-		// 			{ value: '6', correct: true },
-		// 			{ value: '5', correct: false },
-		// 			{ value: '22', correct: false },
-		// 		],
-		// 	},
-		// },
-		// {
-		// 	id: 5,
-		// 	type: 'single',
-		// 	data: {
-		// 		id: 1,
-		// 		question: 'What is 4 + 4?',
-		// 		options: [
-		// 			{ value: '3', correct: false },
-		// 			{ value: '8', correct: true },
-		// 			{ value: '5', correct: false },
-		// 			{ value: '22', correct: false },
-		// 		],
-		// 	},
-		// },
-		// {
-		// 	id: 6,
-		// 	type: 'multiple',
-		// 	data: {
-		// 		id: 'q2',
-		// 		question: 'Выбери все чётные числа',
-		// 		options: [
-		// 			{ value: '1', correct: false },
-		// 			{ value: '10', correct: true },
-		// 			{ value: '3', correct: false },
-		// 			{ value: '12', correct: true },
-		// 		],
-		// 	},
-		// },
-		// {
-		// 	id: 7,
-		// 	type: 'multiple',
-		// 	data: {
-		// 		id: 'q2',
-		// 		question: 'Выбери все чётные числа',
-		// 		options: [
-		// 			{ value: '1', correct: false },
-		// 			{ value: '8', correct: true },
-		// 			{ value: '3', correct: false },
-		// 			{ value: '6', correct: true },
-		// 		],
-		// 	},
-		// },
+		{
+			id: 4,
+			type: 'single',
+			data: {
+				id: 1,
+				question: 'What is 3 + 3?',
+				options: [
+					{ value: '3', correct: false },
+					{ value: '6', correct: true },
+					{ value: '5', correct: false },
+					{ value: '22', correct: false },
+				],
+			},
+		},
+		{
+			id: 5,
+			type: 'single',
+			data: {
+				id: 1,
+				question: 'What is 4 + 4?',
+				options: [
+					{ value: '3', correct: false },
+					{ value: '8', correct: true },
+					{ value: '5', correct: false },
+					{ value: '22', correct: false },
+				],
+			},
+		},
+		{
+			id: 6,
+			type: 'multiple',
+			data: {
+				id: 'q2',
+				question: 'Выбери все чётные числа',
+				options: [
+					{ value: '1', correct: false },
+					{ value: '10', correct: true },
+					{ value: '3', correct: false },
+					{ value: '12', correct: true },
+				],
+			},
+		},
+		{
+			id: 7,
+			type: 'multiple',
+			data: {
+				id: 'q2',
+				question: 'Выбери все чётные числа',
+				options: [
+					{ value: '1', correct: false },
+					{ value: '8', correct: true },
+					{ value: '3', correct: false },
+					{ value: '6', correct: true },
+				],
+			},
+		},
 		{
 			id: 9,
 			type: 'truefalse',
@@ -152,8 +156,14 @@
 			},
 		},
 	]
+
+	const $router = useRouter()
+
 	const state = ref<'category' | 'game' | 'result'>('category')
 	const round = ref(0)
+	const isEnd = computed(() => {
+		return round.value === 4
+	})
 	const themes = ref<ITheme[]>()
 	async function fetchTheme() {
 		try {
@@ -169,7 +179,7 @@
 		}
 	}
 	watch(
-		state,
+		() => state.value,
 		() => {
 			if (state.value === 'category') fetchTheme()
 		},
@@ -204,10 +214,22 @@
 			state.value = 'result'
 		}
 	}
+	async function nextRound() {
+		try {
+			if (!isEnd.value) {
+				round.value += 1
+				state.value = 'category'
+			} else {
+				$router.push('/')
+			}
+		} catch (error) {
+			console.log(error)
+		}
+	}
 </script>
 
 <template>
-	<div class="container min-h-screen flex items-stretch">
+	<div class="h-full container grow flex items-stretch">
 		<div v-if="state === 'category'" class="w-full flex flex-col items-center justify-center gap-3">
 			<button
 				v-for="theme in themes"
@@ -230,7 +252,7 @@
 			/>
 		</div>
 		<div v-else-if="state === 'result'" class="w-full flex flex-col items-center justify-center gap-3">
-			<ResultBoard :players="players" :rounds="rounds" />
+			<ResultBoard :players="players" :rounds="rounds" :is-end="isEnd" @next="nextRound" />
 		</div>
 	</div>
 </template>

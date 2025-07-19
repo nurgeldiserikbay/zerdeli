@@ -40,10 +40,10 @@
 			:key="type.id"
 			:tag="'NuxtLink'"
 			:to="type.link"
-			class="mx-auto w-full max-w-260px h-74px mt-12px px-40px gap-30px rounded-15px text-(16px) font-medium leading-[1.5]"
+			class="mx-auto w-full max-w-260px h-74px mt-12px px-20px justify-center gap-30px rounded-15px text-(16px) font-medium leading-[1.5] sm:(px-40px justify-start)"
 		>
 			<template #append>
-				<Icon name="my-icons:block-select" class="w-28px h-28px shrink-0" />
+				<Icon name="my-icons:block-select" class="shrink-0 w-20px h-20px sm:(w-28px h-28px)" />
 			</template>
 			<template #default>
 				<div class="grow text-center">
