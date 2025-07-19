@@ -3,7 +3,7 @@ import { defineConfig, presetWind3, transformerDirectives, transformerVariantGro
 export default defineConfig({
 	shortcuts: [
 		{
-			container: 'w-full max-w-580px box-border px-24px mx-auto',
+			container: 'w-full max-w-580px box-border px-14px mx-auto',
 		},
 	],
 	safelist: [],

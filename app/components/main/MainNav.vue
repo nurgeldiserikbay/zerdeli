@@ -43,8 +43,11 @@
 </script>
 
 <template>
-	<nav class="h-83px w-full px-7px box-border">
-		<ul :style="{ backgroundImage: `url(/images/nav-main.png)` }" class="grid h-full grid-cols-5 pb-18px bg-[center_100%]">
+	<nav class="w-full px-7px box-border">
+		<ul
+			:style="{ backgroundImage: `url(/images/nav-main.png)`, backgroundSize: '100% 100%' }"
+			class="grid h-full grid-cols-5 pb-18px bg-no-repeat"
+		>
 			<li v-for="nav in NAV_LIST" :key="nav.id">
 				<NuxtLink v-if="nav.link" :to="nav.link" class="flex justify-center items-center h-full py-20px">
 					<component
