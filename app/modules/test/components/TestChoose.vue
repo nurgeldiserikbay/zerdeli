@@ -38,7 +38,7 @@
 				<ProgressBar :value="answer.length" :max="questions.length" />
 			</div>
 		</div>
-		<div class="bg-[#FFFFFF] p-16px pt-24px rounded-24px grow">
+		<div class="bg-[#FFFFFF] p-16px pt-24px rounded-24px pb-10">
 			<component :is="TEST[question.type]" :data="question.data" @answered="emit('answered', $event)" />
 		</div>
 	</div>
