@@ -1,0 +1,21 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+  <circle cx="12" cy="12" r="10" fill="#fde68a" /> <!-- Светло-жёлтый фон -->
+  <path
+    d="M12 17h.01"
+    stroke="#111827"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M12 13c0-1.333 2-2 2-4a2 2 0 0 0-4 0"
+    stroke="#111827"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

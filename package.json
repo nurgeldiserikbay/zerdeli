@@ -1,0 +1,40 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev --https",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"dependencies": {
+		"@nuxt/eslint": "1.5.2",
+		"@nuxt/fonts": "0.11.4",
+		"@nuxt/icon": "1.15.0",
+		"@nuxt/image": "1.10.0",
+		"@nuxt/scripts": "0.11.10",
+		"@unhead/vue": "^2.0.12",
+		"nuxt": "^4.0.0",
+		"nuxt-svgo": "4.2.4",
+		"swiper": "^11.2.10",
+		"vue": "^3.5.17",
+		"vue-router": "^4.5.1"
+	},
+	"packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+	"devDependencies": {
+		"@unocss/nuxt": "^66.3.3",
+		"@unocss/preset-web-fonts": "^66.3.3",
+		"@unocss/reset": "^66.3.3",
+		"eslint": "^9.31.0",
+		"typescript": "^5.8.3",
+		"unocss": "^66.3.3",
+		"vue-tsc": "^3.0.1"
+	},
+	"pnpm": {
+		"overrides": {
+			"ipx": "^3.0.0"
+		}
+	}
+}
