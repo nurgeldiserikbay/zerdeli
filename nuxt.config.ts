@@ -24,4 +24,7 @@ export default defineNuxtConfig({
 			},
 		],
 	},
+	image: {
+		provider: 'ipx',
+	},
 })
